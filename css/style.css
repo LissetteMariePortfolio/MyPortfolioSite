@@ -5,63 +5,79 @@ html {
 * {
   box-sizing: border-box;
 }
-body{
+body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #77dd77;
-  color: white;
+  background-color: #FAFAFF;
 }
 nav > ul > li {
   display: inline;
   margin: 20px;
+  margin-right: 10px;
 }
 nav > ul > li > a {
   display: inline-block;
+  color:#226F54;
 }
-a{
-  color:white;
-  margin-top: 20px;
-  margin-bottom: 20px;
+a {
+  color: white;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
-#selected{
+#selected {
   font-weight: bolder;
-  border: 2px solid black;
+  font-size: 30px;
 }
-.procon{
-  margin:30px;
+nav > ul > li > a:hover {
+  outline: 2px solid rgb(9, 9, 77);
+  outline-offset: 8px;
+}
+.procon {
+  margin: 30px;
   font-weight: 800;
   font-size: 20px;
   list-style-type: none;
 }
-.conclusion{
-  background-color: rgb(86, 84, 233);
-  height: 400px;
-  
+.conclusion {
+  background-color:#51CB20;
+  height: 1100px;
 }
-.conclusion p{
-  margin-left:100px;
+.conclusion p {
+  margin-left: 100px;
   margin-right: 100px;
   margin-top: 30px;
   font-size: 20px;
   margin-bottom: 20px;
 }
-p, a{
+textarea {
+  margin-bottom: 20px;
+}
+form {
+  margin-left: 100px;
+}
+.suggested_readings {
+  display: block;
+}
+p,
+a {
   font-weight: 800;
 }
-.example_paths p{
-  margin-left:100px;
+.example_paths p {
+  margin-left: 100px;
   margin-right: 100px;
   margin-top: 30px;
   font-size: 20px;
   margin-bottom: 20px;
 }
-.conclusion a{
-  margin-left:100px; 
-  font-size: 20px;
-  
+
+label {
+  margin-bottom: 10px;
 }
-nav>ul {
-  
-  background: #78d0f0;
+.conclusion a {
+  margin-left: 100px;
+  font-size: 20px;
+}
+nav > ul {
+  background: #23C9FF;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -77,13 +93,16 @@ nav>ul {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   margin: 0 auto;
   grid-gap: 1rem;
+  justify-content: space-between;
 }
 .card {
-  border: 2px solid #e7e7e7;
+  border: 2px solid #979696;
   border-radius: 4px;
   padding: 0.5rem;
   grid-column: auto;
   grid-row: auto;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+ 
 }
 .card__image {
   height: 300px;
@@ -93,42 +112,87 @@ nav>ul {
   margin-bottom: 20px;
   width: 80%;
 }
-.card_content p{
+.con li {
+  white-space: prewrap;
+}
+.card__content p,
+a {
+  margin-bottom: 20px;
+  color: black;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.card {
   margin-bottom: 20px;
 }
+.pm_img img {
+  height: 550px;
+  width: 550px;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+.pm_info h2,
+p {
+  margin: 15px;
+}
+
 h1 {
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
   margin-top: 40px;
 }
-.card_content p {
-  margin-right: 20px;
-  margin-left: 20px;
+
+.parent_2 {
+  background-color: transparent;
+  width: 700px;
+  height: 600px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  margin-bottom: 25px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-.parent_2{
-  display: flex;
-  margin-top: 20px;
+.button_styling {
+  background-color: rgb(32, 160, 245);
+  color: white;
+}
+
+.parent_2_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+input {
   margin-bottom: 20px;
 }
-.parent_2 h2{
+.parent_2 h2 {
   display: block;
 }
 
-.pm_info h2{
-  font-size: 30px;
-  margin-bottom: 20px;
+.parent_2:hover .parent_2_inner,
+.parent_2:active .parent_2_inner,
+.parent_2:focus .parent_2_inner {
+  transform: rotateY(180deg);
 }
 
-.pm_img{
- 
-  height: auto;
-  background-image:url(images/melanie_lei.jpg);
-  background-size: 100%;
-  float: right;
+.pm_info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.pm_info {
+  transform: rotateY(180deg) translateZ(1px);
+}
 
-  width: 50%;
+.pm_info h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 footer {
@@ -137,24 +201,47 @@ footer {
   padding-top: 30px;
   text-align: center;
 }
-.parent{
+.parent {
   display: flex;
+  height: 3000px;
 }
- h2{
-font-weight: bolder;
-
+h2 {
+  font-weight: bolder;
 }
-.pro{
-
-  height: 1200px;
+.pro {
+  height: 3000px;
   background-color: rgb(20, 153, 241);
   width: 50%;
+  animation-name: proappear;
+  animation-duration: 3s;
 }
-.con{
+.con {
   display: flex;
-  height: 1200px;
+  height: 3000px;
   background-color: rgb(211, 64, 89);
   width: 50%;
+  animation-name: conappear;
+  animation-duration: 6s;
+}
+
+
+
+@keyframes proappear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes conappear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #main {
@@ -164,8 +251,44 @@ font-weight: bolder;
   color: rgba(168, 154, 154, 0.5);
   height: 400px; /* Parallax effect */
 }
+.parallax {
+  min-height: 500px;
+  background-image: url(../images/parallax.png);
 
-@media screen and (min-width: 800px) {
+  min-width: 500px;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (min-width: 1000px) {
+  .conclusion {
+    height: 900px;
+  }
+  .parent {
+    display: flex;
+    height: 1200px;
+  }
+  h2 {
+    font-weight: bolder;
+  }
+  .pro {
+    height: 1200px;
+    background-color: rgb(20, 153, 241);
+    width: 50%;
+    animation-name: proappear;
+    animation-duration: 3s;
+  }
+  .con li{
+    display: block;
+  }
+  .con {
+    display: flex;
+    height: 1200px;
+    
+  }
 }
 
 /** Code for prefers reduced motion **/
@@ -175,13 +298,18 @@ font-weight: bolder;
 @media screen and (prefers-reduced-motion: reduce) {
   /*Turn off scroll*/
   html {
-    scroll-behavior: auto; /* Removes scroll animation */
+    scroll-behavior: auto;
   }
 
-  /*Turn off transition*/
-
-  /*Turn off parallax*/
   header {
     background-attachment: initial;
+  }
+
+  .pro {
+    animation-duration: 0s;
+  }
+
+  .con {
+    animation-duration: 0s;
   }
 }
