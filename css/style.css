@@ -156,6 +156,7 @@ h1 {
 .button_styling {
   background-color: rgb(32, 160, 245);
   color:#0c271d;
+  font-style: bold;
 }
 
 .parent_2_inner {
