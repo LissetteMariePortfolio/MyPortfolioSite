@@ -192,8 +192,13 @@ h1 {
 }
 #submit{
   margin-bottom: 20px;
-  width:280px;
+  width:480px;
   align-self: center;
+  background: #23c9ff;
+  font-size: large;
+  font-weight: bolder;
+  border-radius: 12px;
+  padding: 12px;
 }
 #results{
 align-self: center;
