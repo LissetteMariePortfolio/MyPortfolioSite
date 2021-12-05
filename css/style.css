@@ -7,16 +7,18 @@ html {
 }
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #FAFAFF;
+  background-color: #fafaff;
 }
-nav > ul > li {
-  display: inline;
-  margin: 20px;
-  margin-right: 10px;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
-nav > ul > li > a {
-  display: inline-block;
-  color:#0c271d;
+.menu li {
+  margin-bottom: 25px;
+}
+.menu a {
+  color: #0c271d;
 }
 a {
   color: white;
@@ -24,21 +26,23 @@ a {
   margin-bottom: 15px;
 }
 #selected {
-  font-weight: bolder;
-  font-size: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 5px solid white;
+  padding: 10px;
 }
 nav > ul > li > a:hover {
   outline: 2px solid rgb(9, 9, 77);
   outline-offset: 8px;
 }
+
 .procon {
-  margin: 30px;
   font-weight: 800;
   font-size: 20px;
   list-style-type: none;
 }
 .conclusion {
-  background-color:#51CB20;
+  background-color: #51cb20;
   height: 1100px;
 }
 .conclusion p {
@@ -77,9 +81,15 @@ label {
   font-size: 20px;
 }
 nav > ul {
-  background: #23C9FF;
+  background: #23c9ff;
   padding-top: 20px;
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: auto;
 }
 
 .container {
@@ -102,7 +112,6 @@ nav > ul {
   grid-column: auto;
   grid-row: auto;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
- 
 }
 .card__image {
   height: 300px;
@@ -151,11 +160,51 @@ h1 {
   perspective: 1000px;
   margin-bottom: 25px;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  margin-bottom: 15px;
+}
+#skip{
+  position: absolute;
+  top: -42px;
+}
+.answers{
+  display: inline-block;
 }
 
+.answers label{
+  display: block;
+}
+#skip:focus{
+  top: 10px;
+}
+#quiz{
+  margin: 20px;
+  
+}
+.question{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.answers label{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#submit{
+  margin-bottom: 20px;
+  width:280px;
+  align-self: center;
+}
+#results{
+align-self: center;
+margin-bottom: 20px;
+}
+.quiz-explanation{
+  font-weight: normal;
+}
 .button_styling {
   background: #23c9ff;
-  color:#0c271d;
+  color: #0c271d;
   font-style: bold;
 }
 
@@ -202,30 +251,32 @@ footer {
   padding-top: 30px;
   text-align: center;
 }
-.parent {
-  display: flex;
-  height: 3000px;
-}
+
 h2 {
   font-weight: bolder;
 }
 .pro {
-  height: 3000px;
   background-color: rgb(20, 153, 241);
-  width: 50%;
+  width: 100%;
+
   animation-name: proappear;
   animation-duration: 3s;
 }
+.procon {
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
 .con {
-  display: flex;
-  height: 3000px;
   background-color: rgb(211, 64, 89);
-  width: 50%;
+  width: 100%;
+
   animation-name: conappear;
   animation-duration: 6s;
 }
-
-
+.parent {
+  display: flex;
+  flex-direction: column;
+}
 
 @keyframes proappear {
   from {
@@ -263,39 +314,59 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media screen and (min-width: 780px) {
+  .menu ul {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+  }
+  .menu li {
+    margin-left: 10px;
+  }
+  .menu a {
+    text-align: center;
+    margin: 0 auto;
+  }
+  #selected {
+    border: 2px solid white;
+    padding: 2px;
+    line-height: 2;
+  }
+  .pro {
+    width: 100%;
+  }
+  .con {
+    width: 100%;
+  }
+}
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1100px) {
   .conclusion {
     height: 900px;
   }
   .parent {
     display: flex;
-    height: 1200px;
+    flex-direction: row;
   }
   h2 {
     font-weight: bolder;
   }
   .pro {
-    height: 1200px;
     background-color: rgb(20, 153, 241);
     width: 50%;
     animation-name: proappear;
     animation-duration: 3s;
   }
-  .con li{
-    display: block;
-  }
   .con {
-    display: flex;
-    height: 1200px;
-    
+    width: 50%;
+  }
+  .menu ul {
+    justify-content: center;
+  }
+  .menu li {
+    margin: 0 auto;
   }
 }
-
-/** Code for prefers reduced motion **/
-/* Make no changes below this line.
-   *************************************** 
-   */
 @media screen and (prefers-reduced-motion: reduce) {
   /*Turn off scroll*/
   html {
