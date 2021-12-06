@@ -1,3 +1,9 @@
+const isReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+
+if (!!isReduced) {
+   console.log("Motion has been Reduced, Do nothing!")
+} else {
+    
 
 
 document.getElementById("parent_img1").addEventListener("mouseover", function() {
@@ -44,3 +50,5 @@ document.getElementById("parent_img5").addEventListener("mouseleave", function()
     console.log("Bye");
     document.getElementById("pm_img5").style.opacity = 1;
 });
+}
+
